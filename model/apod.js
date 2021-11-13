@@ -12,5 +12,4 @@ const ApodSchema = new mongoose.Schema({
 })
 
 const model = mongoose.model('ApodModel', ApodSchema)
-
-module.exports = model
+module.exports = model;
