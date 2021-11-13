@@ -18,8 +18,7 @@ const apodRequest =  (req, res) =>{
         }
         if(responce.length == 0){
             request.callApi(query, async function(record){
-                const result = await Apod.create(JSON.parse(record))
-                console.log(result);
+                const result = await Apod.create(record)
         
                 //Download and saving image on server
                 imageOptions.url =  result.url;
