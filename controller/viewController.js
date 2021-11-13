@@ -5,7 +5,7 @@ const path = require('path');
 
 const imageOptions = {
     url:'',
-    dest: './images'
+    dest: 'images'
   }
 
 const apodRequest =  (req, res) =>{
@@ -19,13 +19,12 @@ const apodRequest =  (req, res) =>{
         if(responce.length == 0){
             request.callApi(query, async function(record){
                 const result = await Apod.create(record)
-        
+               
                 //Download and saving image on server
                 imageOptions.url =  result.url;
                 await download.image(imageOptions).then( ({filename})=>{
-                  console.log('saved to',filename);
-                }).catch((err)=>console.log(err))
-                imageUrl = path.join('/images',result.url.split('/').pop())
+                }).catch((err)=>console.log(err));
+                imageUrl = path.join('/images',result.url.split('/').pop());
                 res.json({
                      status: 'okay', 
                      data: result, 
