@@ -1,12 +1,16 @@
 const container = document.querySelector('.container')
-const header = document.querySelector('.header')
+const header    = document.querySelector('.header')
 const description = document.querySelector('.description');
-const media = document.querySelector('.media');
-const astroDate = document.querySelector('.astro_date');
+const media       = document.querySelector('.media');
+const astroDate   = document.querySelector('.astro_date');
 
 const todayDate = new Date().toISOString().slice(0, 10);
 astroDate.max = todayDate;
-const loadingMessage = '<h1>Loading Please wait...</h1>'
+
+const loadingMessage = '<h1>Loading Please wait...</h1>';
+container.innerHTML = loadingMessage;
+boot();
+
 async function boot() {
     let url = '/api/get?'+`date=${todayDate}`;
 
@@ -22,8 +26,7 @@ async function boot() {
     });
     setData(record)
 }
-container.innerHTML = loadingMessage;
-boot()
+
 
 function reset(){
     header.innerHTML = '';
@@ -34,7 +37,6 @@ function reset(){
 
 function setData(record){
     reset();
-    console.log(record)
     header.innerHTML = record.data.title;
     description.innerHTML += record.data.explanation
     astroDate.value = record.data.date;
@@ -42,7 +44,6 @@ function setData(record){
 }
 
 function setMedia(record){
-    console.log(record)
     if(record.data.media_type === 'image'){
         const image = document.createElement('img');
         image.src = record.serverImage;
@@ -76,7 +77,6 @@ async function getAstroData(event){
         return response.json();
     });
     setData(record)
-  
 }
 
 function initializeContainer(){
