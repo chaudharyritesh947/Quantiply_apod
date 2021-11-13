@@ -1,0 +1,21 @@
+{
+  "name": "quantiply_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-server": "^14.0.0",
+    "image-downloader": "^4.0.3",
+    "mongo": "^0.1.0",
+    "mongoose": "^6.0.12",
+    "nodemon": "^2.0.15",
+    "request": "^2.88.2"
+  }
+}

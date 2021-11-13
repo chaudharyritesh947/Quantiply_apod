@@ -1,0 +1,1 @@
+This folder will serve as the server folder for images

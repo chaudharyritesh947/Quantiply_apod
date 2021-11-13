@@ -1,0 +1,23 @@
+.header{
+    margin-top: 0px;
+    margin-bottom: 0.5rem;
+    width: 70%;
+    float: left;
+}
+
+.astro_date{
+    float: right
+}
+
+.container{
+    width: 100%;
+}
+
+.description{
+    margin-top:2rem;
+    margin-bottom: 2rem;
+}
+
+.media-frame{
+width: 80%;
+}
