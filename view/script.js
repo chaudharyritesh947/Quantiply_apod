@@ -21,7 +21,6 @@ async function boot() {
         },
     })
     .then((response) => {
-        initializeContainer();
         return response.json();
     });
     setData(record)
@@ -29,6 +28,7 @@ async function boot() {
 
 
 function reset(){
+    initializeContainer();
     header.innerHTML = '';
     description.innerHTML = 'Explaination: ';
     media.innerHTML = '';
@@ -37,10 +37,16 @@ function reset(){
 
 function setData(record){
     reset();
-    header.innerHTML = record.data.title;
-    description.innerHTML += record.data.explanation
-    astroDate.value = record.data.date;
-    setMedia(record);
+    if(record){
+        header.innerHTML = record.data.title;
+        description.innerHTML += record.data.explanation
+        astroDate.value = record.data.date;
+        setMedia(record);
+    }
+    else{
+        header.innerHTML = '404 - No Record Found!!!';
+        header.style.color = 'red';
+    } 
 }
 
 function setMedia(record){
@@ -73,7 +79,6 @@ async function getAstroData(event){
         },
     })
     .then((response) =>{
-        initializeContainer();
         return response.json();
     });
     setData(record)
