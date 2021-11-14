@@ -10,7 +10,6 @@ DB.makeDBConnection(url);
 app.use('/', express.static(path.resolve(__dirname, 'view')))
 
 app.use('/images', express.static(path.resolve(__dirname, 'images'))); 
-app.use(bodyParser.json());
 
 app.get('/api/get',apodRequest);
 
