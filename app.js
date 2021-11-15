@@ -14,6 +14,5 @@ app.use('/images', express.static(path.resolve(__dirname, 'images')));
 app.get('/api/get',apodRequest);
 
 app.listen(9000, '127.0.0.1', ()=>{
-    //Why connection is not here?
     console.log('Server is runing...');
 });
